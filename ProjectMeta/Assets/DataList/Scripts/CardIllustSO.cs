@@ -12,7 +12,6 @@ public class CardIllustSO : ScriptableObject
 public class CardIllustSOData
 {
     public int Id;
-    public int CardAffectId;
-    public int IllustrationId;
     public string Name;
+    public Sprite Image;
 }
