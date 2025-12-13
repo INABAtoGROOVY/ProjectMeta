@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd564afb615dd84399887c4d214575c, type: 3}
   m_Name: CardSO
   m_EditorClassIdentifier: 
-  Id: 0
-  Name: 
+  DataList:
+  - Id: 0
+    CardAffectId: 0
+    IllustId: 0
+    Name: "\u30C0\u30DF\u30FC"
