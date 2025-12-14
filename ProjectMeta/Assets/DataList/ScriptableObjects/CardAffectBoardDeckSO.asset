@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf919d411d7c164fb331dc1854830da, type: 3}
-  m_Name: CardAffectFieldAttackSO
+  m_Script: {fileID: 11500000, guid: c36106c3478e99f45ae9cccdf6ae3ebb, type: 3}
+  m_Name: CardAffectBoardDeckSO
   m_EditorClassIdentifier: 
-  FieldAttackDataList: []
+  BoardDeckDataList:
+  - Id: 0
+    Name: 
+    Cost: 0

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd564afb615dd84399887c4d214575c, type: 3}
-  m_Name: CardSO
+  m_Script: {fileID: 11500000, guid: e97827a267cd0b74eb70b4da7d04a32f, type: 3}
+  m_Name: CardAffectFieldSummonSO
   m_EditorClassIdentifier: 
-  DataList:
+  FieldSummonDataList:
   - Id: 0
-    CardAffectId: 0
-    IllustId: 0
-    Name: "\u30C0\u30DF\u30FC"
+    Name: 
+    Cost: 0
+    FieldSummonerId: 0
