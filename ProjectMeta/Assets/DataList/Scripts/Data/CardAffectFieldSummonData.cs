@@ -7,5 +7,5 @@ public class CardAffectFieldSummonData : CardAffectData
     public int AttackPoint;
     public int DefencePoint;
     public int AttackInterval;
-    public int KnockBackPower;
+    public int FieldAttackId;
 }
