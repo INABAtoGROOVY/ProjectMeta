@@ -6,14 +6,19 @@ public class IngameSceneController : MonoBehaviour
     [SerializeField]
     private CardFactory cardFactory;
 
+    [SerializeField]
+    private IngameView ingameView;
+
+    private IngamePresenter ingamePresenter;
+
     public void Start()
     {
-        カード生成テスト();
+        ingamePresenter = new IngamePresenter(cardFactory, ingameView);
+        ingamePresenter.ドロー();
     }
 
-    public void カード生成テスト()
+    public void OnDestroy()
     {
-        var card = cardFactory.Create(1);
-        Debug.Log(card.Name);
+        ingamePresenter.Dispose();
     }
 }
