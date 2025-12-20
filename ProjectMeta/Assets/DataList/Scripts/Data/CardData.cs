@@ -4,6 +4,7 @@ using System;
 public class CardData
 {
     public int Id;
+    public int Cost;
     public int CardAffectId;
     public CardAffectType CardAffectType;
     public int IllustId;

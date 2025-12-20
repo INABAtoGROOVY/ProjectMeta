@@ -6,5 +6,4 @@ public abstract class CardAffectData
 {
     public int Id;
     public string Name;
-    public int Cost;
 }
