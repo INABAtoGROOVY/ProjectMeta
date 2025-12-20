@@ -19,4 +19,4 @@ MonoBehaviour:
     AttackPoint: 1
     DefencePoint: 1
     AttackInterval: 1
-    FieldAttackId: 0
+    FieldAttackId: 1
