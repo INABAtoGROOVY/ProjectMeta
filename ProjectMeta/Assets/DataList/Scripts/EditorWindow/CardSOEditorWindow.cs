@@ -4,21 +4,22 @@ using UnityEngine;
 public class CardSOEditorWindow : CreateSOEditorWindow
 {
     private string fileName = "CardSO_{0}";
+    private static string menuName = "Update CardSO";
 
     private CardData cardData = new CardData();
 
     [MenuItem("Window/CardDataEditor/CardSO")]
     public static void ShowWindow()
     {
-        GetWindow<CardSOEditorWindow>("CardDataEditor(Create)");
+        GetWindow<CardSOEditorWindow>(menuName);
     }
 
     private void OnGUI()
     {
-        GUILayout.Label("Card Data Editor (Create)", EditorStyles.boldLabel);
+        GUILayout.Label(menuName, EditorStyles.boldLabel);
         ShowTextFields<CardData>(cardData);
         GUILayout.Space(30);
-        if (GUILayout.Button("Update CardSO"))
+        if (GUILayout.Button("Update"))
         {
             Create<CardSO>(
                 cardData.Id,
