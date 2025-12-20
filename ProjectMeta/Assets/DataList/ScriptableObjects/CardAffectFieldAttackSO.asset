@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: CardAffectFieldAttackSO
   m_EditorClassIdentifier: 
   FieldAttackDataList:
-  - Id: 0
-    Name: 
-    Cost: 0
-    Power: 0
-    Range: 0
+  - Id: 1
+    Name: "\u5F31\u653B\u6483\u30C6\u30B9\u30C8"
+    Cost: 1
+    Power: 1
+    Range: 1
+  - Id: 2
+    Name: "\u5F37\u653B\u6483\u30C6\u30B9\u30C8"
+    Cost: 2
+    Power: 5
+    Range: 5

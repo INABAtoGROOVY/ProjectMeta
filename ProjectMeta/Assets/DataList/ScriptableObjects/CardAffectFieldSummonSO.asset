@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: CardAffectFieldSummonSO
   m_EditorClassIdentifier: 
   FieldSummonDataList:
-  - Id: 0
-    Name: 
-    Cost: 0
-    FieldSummonerId: 0
+  - Id: 1
+    Name: "\u53EC\u559A\u30C6\u30B9\u30C8"
+    HitPoint: 10
+    AttackPoint: 1
+    DefencePoint: 1
+    AttackInterval: 1
+    FieldAttackId: 0

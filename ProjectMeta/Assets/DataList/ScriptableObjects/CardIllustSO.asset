@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: CardIllustSO
   m_EditorClassIdentifier: 
   DataList:
-  - Id: 0
-    Name: "\u30C0\u30DF\u30FC"
-    Image: {fileID: 0}
+  - Id: 1
+    Name: doro
+    Image: {fileID: 21300000, guid: ceabf5210cf56464d96b03a1aca0f432, type: 3}
+  - Id: 2
+    Name: kaguya
+    Image: {fileID: 21300000, guid: 22e6ce5d75d095f46856b198effeb5ea, type: 3}
+  - Id: 3
+    Name: nanika
+    Image: {fileID: 21300000, guid: d3c2184afd9c58e4f98be2ea2e28a086, type: 3}
+  - Id: 4
+    Name: yukkuri
+    Image: {fileID: 21300000, guid: b2614d15fa7513f4e82537b10bc7faa4, type: 3}
+  - Id: 5
+    Name: zundamon
+    Image: {fileID: 21300000, guid: ec3cf2b35cd48ae4aa2bb7f69240c662, type: 3}
+  - Id: 6
+    Name: hibki
+    Image: {fileID: 21300000, guid: c1c41ba7640ac4844aa97f682ccfb3ed, type: 3}

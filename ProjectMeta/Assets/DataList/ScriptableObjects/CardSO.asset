@@ -14,10 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DataList:
   - Id: 1
-    CardAffectId: 0
-    IllustId: 0
+    Cost: 1
+    CardAffectId: 1
+    CardAffectType: 0
+    IllustId: 1
+    activaterId: 0
     Name: "\u30C0\u30DF\u30FC"
-  - Id: 1
-    CardAffectId: 0
-    IllustId: 0
+  - Id: 2
+    Cost: 2
+    CardAffectId: 2
+    CardAffectType: 0
+    IllustId: 2
+    activaterId: 0
+    Name: "\u30C0\u30DF\u30FC"
+  - Id: 3
+    Cost: 2
+    CardAffectId: 3
+    CardAffectType: 0
+    IllustId: 3
+    activaterId: 0
+    Name: "\u30C0\u30DF\u30FC"
+  - Id: 4
+    Cost: 2
+    CardAffectId: 1
+    CardAffectType: 1
+    IllustId: 4
+    activaterId: 0
+    Name: "\u30C0\u30DF\u30FC"
+  - Id: 5
+    Cost: 2
+    CardAffectId: 1
+    CardAffectType: 2
+    IllustId: 5
+    activaterId: 0
+    Name: "\u30C0\u30DF\u30FC"
+  - Id: 6
+    Cost: 2
+    CardAffectId: 2
+    CardAffectType: 2
+    IllustId: 6
+    activaterId: 0
     Name: "\u30C0\u30DF\u30FC"

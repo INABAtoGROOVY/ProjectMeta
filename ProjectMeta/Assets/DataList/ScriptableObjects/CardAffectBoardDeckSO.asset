@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: CardAffectBoardDeckSO
   m_EditorClassIdentifier: 
   BoardDeckDataList:
-  - Id: 0
-    Name: 
-    Cost: 0
+  - Id: 1
+    Name: "\u30B7\u30E3\u30C3\u30D5\u30EB\u30C6\u30B9\u30C8"
+    Cost: 1
+    boardDeakAffect: 0
+  - Id: 2
+    Name: "\u30B3\u30B9\u30C8\u30AB\u30C3\u30C8\u30C6\u30B9\u30C8"
+    Cost: 2
+    boardDeakAffect: 1
+  - Id: 3
+    Name: "\u30C9\u30ED\u30FC\u30C6\u30B9\u30C8"
+    Cost: 3
+    boardDeakAffect: 2
