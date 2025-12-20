@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class CreateSOEditorWindow : EditorWindow
 {
-    private readonly string BASE_PATH = "Assets/DataList/ScriptableObjects/CardSO/{0}.asset";
+    private readonly string BASE_PATH = "Assets/DataList/ScriptableObjects/{0}.asset";
     private string GetAssetPath(string fileName, int id) => string.Format(BASE_PATH, fileName);
 
     protected void Create<T>(

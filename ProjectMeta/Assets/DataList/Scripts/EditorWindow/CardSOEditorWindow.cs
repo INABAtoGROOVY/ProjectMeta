@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CardSOEditorWindow : CreateSOEditorWindow
 {
-    private string fileName = "CardSO_{0}";
+    private string fileName = "CardSO/CardSO_{0}";
     private static string menuName = "Update CardSO";
 
     private CardData cardData = new CardData();
@@ -24,7 +24,7 @@ public class CardSOEditorWindow : CreateSOEditorWindow
             Create<CardSO>(
                 cardData.Id,
                 string.Format(fileName, cardData.Id),
-                (asset) => asset.data = cardData
+                (asset) => asset.Data = cardData
             );
         }
     }
