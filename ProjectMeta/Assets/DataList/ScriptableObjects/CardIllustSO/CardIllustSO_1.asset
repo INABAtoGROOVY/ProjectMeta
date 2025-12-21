@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fcfacc10836d8b4c973d154c603201d, type: 3}
-  m_Name: CardIllustSO_0
+  m_Name: CardIllustSO_1
   m_EditorClassIdentifier: 
   Data:
-    Id: 0
+    Id: 1
     Name: hoge
-    Image: {fileID: 21300000, guid: c1c41ba7640ac4844aa97f682ccfb3ed, type: 3}
+    Image: {fileID: 21300000, guid: 22e6ce5d75d095f46856b198effeb5ea, type: 3}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd564afb615dd84399887c4d214575c, type: 3}
   m_Name: CardSO_0
   m_EditorClassIdentifier: 
-  data:
+  Data:
     Id: 0
-    Name: 
+    Name: hoge
     Cost: 0
     IllustId: 0
     activaterId: 0
