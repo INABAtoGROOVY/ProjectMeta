@@ -5,17 +5,16 @@ using UnityEngine;
 public abstract class CreateSOEditorWindow : EditorWindow
 {
     private readonly string BASE_PATH = "Assets/DataList/ScriptableObjects/{0}.asset";
-    private string GetAssetPath(string fileName, int id) => string.Format(BASE_PATH, fileName);
+    private string GetAssetPath(string fileName) => string.Format(BASE_PATH, fileName);
 
     protected void Create<T>(
-        int id,
         string fileName,
         Action<T> onCreate = null
     ) where T : ScriptableObject
     {
         var asset = CreateInstance<T>();
         onCreate?.Invoke(asset);
-        AssetDatabase.CreateAsset(asset,GetAssetPath(fileName, id));
+        AssetDatabase.CreateAsset(asset,GetAssetPath(fileName));
         AssetDatabase.Refresh();
     }
 
@@ -34,12 +33,22 @@ public abstract class CreateSOEditorWindow : EditorWindow
             else if (field.FieldType == typeof(float))
             {
                 var textField = EditorGUILayout.TextField($"{field.GetValue(obj)}");
-                field.SetValue(obj, int.Parse(textField));
+                field.SetValue(obj, float.Parse(textField));
             }
             else if (field.FieldType == typeof(string))
             {
                 var textField = EditorGUILayout.TextField($"{field.GetValue(obj)}");
                 field.SetValue(obj, textField);
+            }
+            else if (field.FieldType == typeof(Sprite))
+            {
+                var sprite = (Sprite)EditorGUILayout.ObjectField(field.GetValue(obj) as UnityEngine.Object, typeof(Sprite), false);
+                field.SetValue(obj, sprite);
+                if(sprite != null)
+                {
+                    var texture = AssetDatabase.LoadAssetAtPath<Texture>(AssetDatabase.GetAssetPath(sprite));
+                    EditorGUILayout.LabelField(new GUIContent(texture), GUILayout.Height(16*20), GUILayout.Width(9*20));
+                }
             }
             // 対応させたいenumを都度追加する
             else if(field.FieldType == typeof(CardAffectType))
@@ -51,6 +60,10 @@ public abstract class CreateSOEditorWindow : EditorWindow
             {
                 var enumPopup = (BoardDeakAffectType)EditorGUILayout.EnumPopup((System.Enum)field.GetValue(obj));
                 field.SetValue(obj, enumPopup);
+            }
+            else
+            {
+                Debug.LogError($"{field.FieldType} is not supported.");
             }
         }
     }

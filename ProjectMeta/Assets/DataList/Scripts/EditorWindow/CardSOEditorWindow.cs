@@ -21,10 +21,15 @@ public class CardSOEditorWindow : CreateSOEditorWindow
         GUILayout.Space(30);
         if (GUILayout.Button("Update"))
         {
-            Create<CardSO>(
-                cardData.Id,
-                string.Format(fileName, cardData.Id),
-                (asset) => asset.Data = cardData
+            CommonPopupEditorWindow.Open(
+                menuName,
+                $"CardSOを更新しますか?\nID : {cardData.Id}",
+                "はい",
+                "いいえ",
+                () => Create<CardSO>(
+                    string.Format(fileName, cardData.Id),
+                    (asset) => asset.Data = cardData
+                )
             );
         }
     }
