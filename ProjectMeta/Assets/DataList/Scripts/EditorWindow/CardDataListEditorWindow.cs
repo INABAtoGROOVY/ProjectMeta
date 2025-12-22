@@ -47,6 +47,7 @@ public class CardDataListEditorWindow : EditorWindow
                 _cardSOList.Add(cardSO);
             }
         }
+        _cardSOList = _cardSOList.OrderBy(item => item.Data.Id).ToList();
 
         foreach(var item in Directory.GetFiles(CARD_ILLUST_SO_PATH, "*.asset", SearchOption.AllDirectories))
         {
@@ -56,6 +57,8 @@ public class CardDataListEditorWindow : EditorWindow
                 _cardIllustSOList.Add(cardIllustSO);
             }
         }
+
+        maxPage = Mathf.CeilToInt(_cardSOList.Count/(float)(rawCount*colomnCount));
     }
 
     private void DeleteData(int id)
@@ -77,13 +80,12 @@ public class CardDataListEditorWindow : EditorWindow
     public static void ShowWindow()
     {
         InitializeData();
-        maxPage = Mathf.CeilToInt(_cardSOList.Count/(float)(rawCount*colomnCount));
-
         GetWindow<CardDataListEditorWindow>(MENU_NAME);
     }
 
     private void OnGUI()
     {
+        // 新規作成
         GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
         EditorGUILayout.LabelField("新規作成", EditorStyles.boldLabel);
         using (new EditorGUILayout.HorizontalScope())
@@ -96,14 +98,10 @@ public class CardDataListEditorWindow : EditorWindow
             {
                 CardSOEditorWindow.ShowWindow(onUpdate: () => InitializeData(),  cardIdList: GetCardIdList(), isRegisterableId : true);
             }
-            // カードを作成して、一覧から追加設定する想定なので必要なさそう(一応残す)
-            // if(GUILayout.Button("CardIllust", GUILayout.Height(100), GUILayout.Width(100)))
-            // {
-            //     CardIllustSOEditorWindow.ShowWindow(onUpdate: () => InitializeData());
-            // }
         }
-        GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
 
+        // カード一覧
+        GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
         EditorGUILayout.LabelField("カード一覧(更新)", EditorStyles.boldLabel);
         if(IsEnablePaging())
         {
@@ -120,7 +118,7 @@ public class CardDataListEditorWindow : EditorWindow
             }
         }
 
-        for (var i = currentPage * rawCount * colomnCount; i < _cardSOList.Count; i += rawCount)
+        for (var i = currentPage * rawCount * colomnCount; i < (currentPage + 1) * rawCount * colomnCount && i < _cardSOList.Count; i += rawCount)
         {
             using (new EditorGUILayout.HorizontalScope())
             {
