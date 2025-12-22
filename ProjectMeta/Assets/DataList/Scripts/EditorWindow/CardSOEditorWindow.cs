@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,10 +9,19 @@ public class CardSOEditorWindow : CreateSOEditorWindow
 
     private CardData cardData = new CardData();
 
-    [MenuItem("Window/CardDataEditor/CardSO")]
-    public static void ShowWindow()
+    private Action onUpdate = null;
+
+    public static void ShowWindow(CardData cardData = null, Action onUpdate = null)
     {
-        GetWindow<CardSOEditorWindow>(menuName);
+        var window = GetWindow<CardSOEditorWindow>(menuName);
+        if(cardData != null)
+        {
+            window.cardData = cardData.DeepCopy();
+        }
+        if (onUpdate != null)
+        {
+            window.onUpdate = onUpdate;
+        }
     }
 
     private void OnGUI()
@@ -26,10 +36,16 @@ public class CardSOEditorWindow : CreateSOEditorWindow
                 $"CardSOを更新しますか?\nID : {cardData.Id}",
                 "はい",
                 "いいえ",
-                () => Create<CardSO>(
-                    string.Format(fileName, cardData.Id),
-                    (asset) => asset.Data = cardData
-                )
+                () =>
+                {
+                    Create<CardSO>(string.Format(fileName, cardData.Id),(asset) => asset.Data = cardData);
+                    onUpdate?.Invoke();
+                    Close();
+                },
+                () =>
+                {
+                    //Close();
+                }
             );
         }
     }

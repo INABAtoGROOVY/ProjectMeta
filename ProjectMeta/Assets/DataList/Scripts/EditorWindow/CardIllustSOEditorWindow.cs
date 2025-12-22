@@ -1,4 +1,5 @@
 
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,10 +10,19 @@ public class CardIllustSOEditorWindow : CreateSOEditorWindow
 
     private CardIllustData cardIllustData = new CardIllustData();
 
-    [MenuItem("Window/CardDataEditor/CardIllustSO")]
-    public static void ShowWindow()
+    private Action onUpdate = null;
+
+    public static void ShowWindow(CardIllustData cardIllustData = null, Action onUpdate = null)
     {
-        GetWindow<CardIllustSOEditorWindow>(menuName);
+        var window = GetWindow<CardIllustSOEditorWindow>(menuName);
+        if (cardIllustData != null)
+        {
+            window.cardIllustData = new CardIllustData(cardIllustData.Id, cardIllustData.Name, cardIllustData.Image);
+        }
+        if (onUpdate != null)
+        {
+            window.onUpdate = onUpdate;
+        }
     }
 
     private void OnGUI()
@@ -27,10 +37,16 @@ public class CardIllustSOEditorWindow : CreateSOEditorWindow
                 $"CardIllustSOを更新しますか?\nID : {cardIllustData.Id}",
                 "はい",
                 "いいえ",
-                () => Create<CardIllustSO>(
-                    string.Format(fileName, cardIllustData.Id),
-                    (asset) => asset.Data = cardIllustData
-                )
+                () => 
+                {
+                    Create<CardIllustSO>(string.Format(fileName, cardIllustData.Id),(asset) => asset.Data = cardIllustData);
+                    onUpdate?.Invoke();
+                    Close();
+                },
+                () =>
+                {
+                    //Close();
+                }
             );
         }
     }
