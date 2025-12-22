@@ -11,7 +11,7 @@ public class CardDataListEditorWindow : EditorWindow
     private static readonly string CARD_SO_PATH = $"{BASE_PATH}CardSO/";
     private static readonly string CARD_ILLUST_SO_PATH = $"{BASE_PATH}CardIllustSO/";
 
-    //TODO データがすごい増えた時に負荷大丈夫そうかチェック
+    //TODO データが増えた時にチェック
     private static List<CardSO> _cardSOList = new List<CardSO>();
     private static List<CardIllustSO> _cardIllustSOList = new List<CardIllustSO>();
     private static int GetUnregisteredCardId() => _cardSOList.Max(item => item.Data.Id) + 1; // 簡易的にインクリメント
