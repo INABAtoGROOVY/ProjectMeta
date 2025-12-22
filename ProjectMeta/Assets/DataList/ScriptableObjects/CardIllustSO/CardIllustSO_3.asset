@@ -15,4 +15,4 @@ MonoBehaviour:
   Data:
     Id: 3
     Name: hoge
-    Image: {fileID: 21300000, guid: ceabf5210cf56464d96b03a1aca0f432, type: 3}
+    Image: {fileID: 21300000, guid: 22e6ce5d75d095f46856b198effeb5ea, type: 3}

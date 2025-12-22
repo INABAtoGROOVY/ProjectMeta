@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     Id: 2
-    Name: hoge
+    Name: aaaaaa
     Cost: 0
     IllustId: 2
     activaterId: 0
     CardAffectId: 0
-    CardAffectType: 0
+    CardAffectType: 1

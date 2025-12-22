@@ -16,7 +16,6 @@ MonoBehaviour:
     Id: 3
     Name: hoge
     Cost: 0
-    IllustId: 3
     activaterId: 0
     CardAffectId: 0
     CardAffectType: 0
