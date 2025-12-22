@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardDataListUpdateSelectEditorWindow : EditorWindow
 {
-    private static readonly string MENU_NAME = "Choose target data";
+    private static readonly string MENU_NAME = "Choose menu";
 
     private CardData cardData;
     private CardIllustData cardIllustData;

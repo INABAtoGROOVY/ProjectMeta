@@ -20,15 +20,23 @@ public abstract class CreateSOEditorWindow : EditorWindow
 
     protected void ShowTextFields<T>(object obj)
     {
+        GUILayout.Label(obj.GetType().Name, EditorStyles.boldLabel);
         GUILayout.Space(10);
-        GUILayout.Label(obj.GetType().Name);
         foreach (var field in typeof(T).GetFields())
         {
             GUILayout.Label(field.Name);
             if (field.FieldType == typeof(int))
             {
-                var textField = EditorGUILayout.TextField($"{field.GetValue(obj)}");
-                field.SetValue(obj, int.Parse(textField));
+                //IDは再入力できないようにする
+                if(field.Name == "Id")
+                {
+                    GUILayout.Label($"{field.GetValue(obj)}");
+                }
+                else
+                {
+                    var textField = EditorGUILayout.TextField($"{field.GetValue(obj)}");
+                    field.SetValue(obj, int.Parse(textField));
+                }
             }
             else if (field.FieldType == typeof(float))
             {

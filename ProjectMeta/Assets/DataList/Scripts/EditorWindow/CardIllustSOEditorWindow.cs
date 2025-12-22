@@ -27,7 +27,6 @@ public class CardIllustSOEditorWindow : CreateSOEditorWindow
 
     private void OnGUI()
     {
-        GUILayout.Label(menuName, EditorStyles.boldLabel);
         ShowTextFields<CardIllustData>(cardIllustData);
         GUILayout.Space(30);
         if (GUILayout.Button("Update"))
