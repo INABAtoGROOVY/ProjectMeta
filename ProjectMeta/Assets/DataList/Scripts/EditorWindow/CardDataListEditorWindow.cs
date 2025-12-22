@@ -15,6 +15,7 @@ public class CardDataListEditorWindow : EditorWindow
     private static List<CardSO> _cardSOList = new List<CardSO>();
     private static List<CardIllustSO> _cardIllustSOList = new List<CardIllustSO>();
     private static int GetUnregisteredCardId() => _cardSOList.Max(item => item.Data.Id) + 1; // 簡易的にインクリメント
+    private static List<int> GetCardIdList() => _cardSOList.Select(item => item.Data.Id).ToList();
 
     private static readonly int rawCount = 10;
     private static readonly int colomnCount = 3;
@@ -57,7 +58,7 @@ public class CardDataListEditorWindow : EditorWindow
         }
     }
 
-    private void DeleteCard(int id)
+    private void DeleteData(int id)
     {
         var cardSO = _cardSOList.FirstOrDefault(item => item.Data.Id == id);
         var cardIllustSO = _cardIllustSOList.FirstOrDefault(item => item.Data.Id == id);
@@ -83,7 +84,6 @@ public class CardDataListEditorWindow : EditorWindow
 
     private void OnGUI()
     {
-        EditorGUILayout.LabelField(MENU_NAME, EditorStyles.boldLabel);
         GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
         EditorGUILayout.LabelField("新規作成", EditorStyles.boldLabel);
         using (new EditorGUILayout.HorizontalScope())
@@ -91,6 +91,10 @@ public class CardDataListEditorWindow : EditorWindow
             if(GUILayout.Button("Card", GUILayout.Height(100), GUILayout.Width(100)))
             {
                 CardSOEditorWindow.ShowWindow(new CardData(GetUnregisteredCardId()), () => InitializeData());
+            }
+            if(GUILayout.Button("Card(ID指定)", GUILayout.Height(100), GUILayout.Width(100)))
+            {
+                CardSOEditorWindow.ShowWindow(onUpdate: () => InitializeData(),  cardIdList: GetCardIdList(), isRegisterableId : true);
             }
             // カードを作成して、一覧から追加設定する想定なので必要なさそう(一応残す)
             // if(GUILayout.Button("CardIllust", GUILayout.Height(100), GUILayout.Width(100)))
@@ -138,7 +142,7 @@ public class CardDataListEditorWindow : EditorWindow
             GUILayout.Label($"ID : {cardData.Id}", GUILayout.Height(20), GUILayout.Width(9 * 10));
             if(GUILayout.Button(texture, GUILayout.Height(16 * 10), GUILayout.Width(9 * 10)))
             {
-                CardDataListUpdateSelectEditorWindow.ShowWindow(cardData, target?.Data, () => InitializeData(), () => DeleteCard(cardData.Id));
+                CardDataListUpdateSelectEditorWindow.ShowWindow(cardData, target?.Data, () => InitializeData(), () => DeleteData(cardData.Id));
             }
         }
     }

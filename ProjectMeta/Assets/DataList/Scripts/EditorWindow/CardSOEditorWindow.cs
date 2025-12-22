@@ -1,5 +1,5 @@
 using System;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CardSOEditorWindow : CreateSOEditorWindow
@@ -10,8 +10,15 @@ public class CardSOEditorWindow : CreateSOEditorWindow
     private CardData cardData = new CardData();
 
     private Action onUpdate = null;
+    private List<int> cardIdList = null;
+    private bool isRegisterableId = false;
 
-    public static void ShowWindow(CardData cardData = null, Action onUpdate = null)
+    public static void ShowWindow(
+        CardData cardData = null,
+        Action onUpdate = null,
+        List<int> cardIdList = null,
+        bool isRegisterableId = false
+    )
     {
         var window = GetWindow<CardSOEditorWindow>(menuName);
         if(cardData != null)
@@ -22,30 +29,49 @@ public class CardSOEditorWindow : CreateSOEditorWindow
         {
             window.onUpdate = onUpdate;
         }
+        if (cardIdList != null)
+        {
+            window.cardIdList = cardIdList;
+        }
+        window.isRegisterableId = isRegisterableId;
     }
 
     private void OnGUI()
     {
-        ShowTextFields<CardData>(cardData);
+        ShowTextFields<CardData>(cardData, isRegisterableId);
         GUILayout.Space(30);
         if (GUILayout.Button("Update"))
         {
-            CommonPopupEditorWindow.Open(
-                menuName,
-                $"CardSOを更新しますか?\nID : {cardData.Id}",
-                "はい",
-                "いいえ",
-                () =>
-                {
-                    Create<CardSO>(string.Format(fileName, cardData.Id),(asset) => asset.Data = cardData);
-                    onUpdate?.Invoke();
-                    Close();
-                },
-                () =>
-                {
-                    //Close();
-                }
-            );
+            if(cardIdList != null && cardIdList.Contains(cardData.Id))
+            {
+                CommonPopupEditorWindow.OpenSingleMessage(
+                    menuName,
+                    $"IDが重複しています\nID : {cardData.Id}",
+                    "はい",
+                    () =>
+                    {
+                    }
+                );
+            }
+            else
+            {
+                CommonPopupEditorWindow.Open(
+                    menuName,
+                    $"CardSOを更新しますか?\nID : {cardData.Id}",
+                    "はい",
+                    "いいえ",
+                    () =>
+                    {
+                        Create<CardSO>(string.Format(fileName, cardData.Id),(asset) => asset.Data = cardData);
+                        onUpdate?.Invoke();
+                        Close();
+                    },
+                    () =>
+                    {
+                        //Close();
+                    }
+                );
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ public abstract class CreateSOEditorWindow : EditorWindow
         AssetDatabase.Refresh();
     }
 
-    protected void ShowTextFields<T>(object obj)
+    protected void ShowTextFields<T>(object obj, bool isRegisterableId = false)
     {
         GUILayout.Label(obj.GetType().Name, EditorStyles.boldLabel);
         GUILayout.Space(10);
@@ -27,8 +27,8 @@ public abstract class CreateSOEditorWindow : EditorWindow
             GUILayout.Label(field.Name);
             if (field.FieldType == typeof(int))
             {
-                //IDは再入力できないようにする
-                if(field.Name == "Id")
+                //IDは基本的に再入力できないようにする
+                if(field.Name == "Id" && !isRegisterableId)
                 {
                     GUILayout.Label($"{field.GetValue(obj)}");
                 }

@@ -24,4 +24,19 @@ public class CommonPopupEditorWindow : EditorWindow
             cancelCallBack?.Invoke();
         }
     }
+
+    public static void OpenSingleMessage(
+        string title,
+        string message,
+        string okText,
+        Action okCallBack = null
+    )
+    {
+        EditorApplication.Beep();
+        bool option = EditorUtility.DisplayDialog(title,message,okText);
+        if (option)
+        {
+            okCallBack?.Invoke();
+        }
+    }
 }
