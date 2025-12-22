@@ -9,8 +9,14 @@ public class CardDataListUpdateSelectEditorWindow : EditorWindow
     private CardData cardData;
     private CardIllustData cardIllustData;
     private Action onUpdate;
+    private Action onDelete;
 
-    public static void ShowWindow(CardData cardData = null, CardIllustData cardIllustData = null, Action onUpdate = null)
+    public static void ShowWindow(
+        CardData cardData = null,
+        CardIllustData cardIllustData = null,
+        Action onUpdate = null,
+        Action onDelete = null
+    )
     {
         var window = GetWindow<CardDataListUpdateSelectEditorWindow>(MENU_NAME);
         if(cardData != null)
@@ -30,6 +36,10 @@ public class CardDataListUpdateSelectEditorWindow : EditorWindow
         {
             window.onUpdate = onUpdate;
         }
+        if (onDelete != null)
+        {
+            window.onDelete = onDelete;
+        }
     }
 
     private void OnGUI()
@@ -43,6 +53,25 @@ public class CardDataListUpdateSelectEditorWindow : EditorWindow
         {
             CardIllustSOEditorWindow.ShowWindow(cardIllustData, onUpdate);
             Close();
+        }
+        var style = new GUIStyle(GUI.skin.button);
+        style.normal.textColor = Color.red;
+        style.hover.textColor = Color.red;
+        if(GUILayout.Button("Delete Card", style,GUILayout.Height(50), GUILayout.Width(200)))
+        {
+            CommonPopupEditorWindow.Open(
+                "カード削除",
+                "カードを削除しますか?\nカードに紐づいたデータはすべて削除されます",
+                "はい",
+                "いいえ",
+                () => 
+                {
+                    onDelete?.Invoke();
+                    onUpdate?.Invoke();
+                    Close();
+                },
+                () => {}
+            );
         }
     }
 }

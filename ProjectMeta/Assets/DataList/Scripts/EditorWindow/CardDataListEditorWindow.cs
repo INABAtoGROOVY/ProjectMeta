@@ -57,6 +57,21 @@ public class CardDataListEditorWindow : EditorWindow
         }
     }
 
+    private void DeleteCard(int id)
+    {
+        var cardSO = _cardSOList.FirstOrDefault(item => item.Data.Id == id);
+        var cardIllustSO = _cardIllustSOList.FirstOrDefault(item => item.Data.Id == id);
+        if (cardSO != null)
+        {
+            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(cardSO));
+        }
+        if (cardIllustSO != null)
+        {
+            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(cardIllustSO));
+        }
+        AssetDatabase.Refresh();
+    }
+
     [MenuItem("Window/CardDataEditor/CardDataList")]
     public static void ShowWindow()
     {
@@ -123,7 +138,7 @@ public class CardDataListEditorWindow : EditorWindow
             GUILayout.Label($"ID : {cardData.Id}", GUILayout.Height(20), GUILayout.Width(9 * 10));
             if(GUILayout.Button(texture, GUILayout.Height(16 * 10), GUILayout.Width(9 * 10)))
             {
-                CardDataListUpdateSelectEditorWindow.ShowWindow(cardData, target?.Data, () => InitializeData());
+                CardDataListUpdateSelectEditorWindow.ShowWindow(cardData, target?.Data, () => InitializeData(), () => DeleteCard(cardData.Id));
             }
         }
     }
