@@ -111,6 +111,7 @@ public class CardDataListEditorWindow : EditorWindow
                 {
                     ChangePage(-1);
                 }
+                GUILayout.Label($"<{currentPage + 1}/{maxPage}>", GUILayout.Height(60), GUILayout.Width(60));
                 if(GUILayout.Button("次のページ", GUILayout.Height(60), GUILayout.Width(60)))
                 {
                     ChangePage(1);
