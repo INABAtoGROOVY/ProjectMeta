@@ -61,7 +61,7 @@ public class CardDataListUpdateSelectEditorWindow : EditorWindow
         {
             CommonPopupEditorWindow.Open(
                 "カード削除",
-                "カードを削除しますか?\nカードに紐づいたデータはすべて削除されます",
+                "カードを削除しますか?\nカードを構成するスクリプタブルオブジェクトはすべて削除されます",
                 "はい",
                 "いいえ",
                 () => 
