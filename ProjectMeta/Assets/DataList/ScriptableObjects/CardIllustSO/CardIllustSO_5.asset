@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd564afb615dd84399887c4d214575c, type: 3}
-  m_Name: CardSO_0
+  m_Script: {fileID: 11500000, guid: 4fcfacc10836d8b4c973d154c603201d, type: 3}
+  m_Name: CardIllustSO_5
   m_EditorClassIdentifier: 
   Data:
-    Id: 0
-    Name: "\u30B7\u30E3\u30C3\u30D5\u30EB\u30C6\u30B9\u30C8"
-    Cost: 1
-    activaterId: 0
-    CardAffectId: 1
-    CardAffectType: 0
+    Id: 5
+    Name: 
+    Image: {fileID: 21300000, guid: c1c41ba7640ac4844aa97f682ccfb3ed, type: 3}

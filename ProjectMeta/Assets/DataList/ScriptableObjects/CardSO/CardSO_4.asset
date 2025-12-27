@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fd564afb615dd84399887c4d214575c, type: 3}
-  m_Name: CardSO_0
+  m_Name: CardSO_4
   m_EditorClassIdentifier: 
   Data:
-    Id: 0
-    Name: "\u30B7\u30E3\u30C3\u30D5\u30EB\u30C6\u30B9\u30C8"
-    Cost: 1
+    Id: 4
+    Name: "\u5F37\u653B\u6483\u30C6\u30B9\u30C8"
+    Cost: 3
     activaterId: 0
-    CardAffectId: 1
-    CardAffectType: 0
+    CardAffectId: 2
+    CardAffectType: 2
