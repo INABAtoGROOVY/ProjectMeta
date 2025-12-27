@@ -10,17 +10,18 @@ public class CardFactory : MonoBehaviour
         int id
     )
     {
-        var cardData = CardSO.DataList.FirstOrDefault(item => item.Id == id);
-        if (cardData == null)
-        {
-            return null;
-        }
+        // var cardData = CardSO.DataList.FirstOrDefault(item => item.Id == id);
+        // if (cardData == null)
+        // {
+        //     return null;
+        // }
 
-        return new CardEntity(
-            id,
-            cardData.CardAffectId,
-            cardData.IllustId,
-            cardData.Name
-        );
+        // return new CardEntity(
+        //     id,
+        //     cardData.CardAffectId,
+        //     cardData.IllustId,
+        //     cardData.Name
+        // );
+        return null;
     }
 }
