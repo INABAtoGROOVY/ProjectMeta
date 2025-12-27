@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     Id: 1
-    Name: hoge
-    Cost: 0
-    IllustId: 1
+    Name: "\u30B3\u30B9\u30C8\u30AB\u30C3\u30C8\u30C6\u30B9\u30C8"
+    Cost: 2
     activaterId: 0
-    CardAffectId: 0
+    CardAffectId: 2
     CardAffectType: 0

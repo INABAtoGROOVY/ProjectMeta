@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     Id: 2
-    Name: aaaaaa
-    Cost: 0
-    IllustId: 2
+    Name: "\u30C9\u30ED\u30FC\u30C6\u30B9\u30C8"
+    Cost: 3
     activaterId: 0
-    CardAffectId: 0
-    CardAffectType: 1
+    CardAffectId: 3
+    CardAffectType: 0
