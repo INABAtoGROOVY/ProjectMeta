@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerUnitEntityBase : EntityBase<PlayerUnitEntityBase>
+public class PlayerUnitEntityBase : EntityBase
 {
     public PlayerUnitEntityBase(int id) : base(id)
     {

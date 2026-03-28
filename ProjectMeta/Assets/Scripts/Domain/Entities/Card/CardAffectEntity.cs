@@ -1,4 +1,4 @@
-public class CardAffectEntity : EntityBase<CardAffectEntity>
+public class CardAffectEntity : EntityBase
 {
     public CardAffectType CardAffectType { get; protected set; }
     public int Cost { get; protected set; }

@@ -1,4 +1,4 @@
-public class CardEntity : EntityBase<CardEntity>
+public class CardEntity : EntityBase
 {
     //TODO affectを発動してqueueする、queueを取り出して実行する
     public int CardAffectId { get; protected set; }

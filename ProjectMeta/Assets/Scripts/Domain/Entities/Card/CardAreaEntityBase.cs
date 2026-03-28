@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardAreaEntityBase : EntityBase<CardAreaEntityBase>
+public class CardAreaEntityBase : EntityBase
 {
     public List<CardEntity> cardEntities = new List<CardEntity>();
 

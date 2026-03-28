@@ -1,7 +1,8 @@
-public class EntityBase<T> where T : class
+public abstract class EntityBase
 {
-    public int Id { get; protected set; }
-    public EntityBase(int id)
+    public int Id { get; }
+
+    protected EntityBase(int id)
     {
         Id = id;
     }
