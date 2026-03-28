@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class CardFactory : MonoBehaviour
 {
-    [SerializeField]
-    private CardSO CardSO;
-
     public CardEntity Create(
         int id
     )

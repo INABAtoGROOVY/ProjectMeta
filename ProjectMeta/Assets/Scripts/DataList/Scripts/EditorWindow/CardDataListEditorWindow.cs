@@ -7,7 +7,7 @@ using UnityEngine;
 public class CardDataListEditorWindow : EditorWindow
 {
     private static readonly string MENU_NAME = "CardDataListEditor";
-    private static readonly string BASE_PATH = "Assets/DataList/ScriptableObjects/";
+    private static readonly string BASE_PATH = "Assets/Resources/DataList/ScriptableObjects/";
     private static readonly string CARD_SO_PATH = $"{BASE_PATH}CardSO/";
     private static readonly string CARD_ILLUST_SO_PATH = $"{BASE_PATH}CardIllustSO/";
 
