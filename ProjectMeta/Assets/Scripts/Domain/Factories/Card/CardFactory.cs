@@ -7,18 +7,17 @@ public class CardFactory : MonoBehaviour
         int id
     )
     {
-        // var cardData = CardSO.DataList.FirstOrDefault(item => item.Id == id);
-        // if (cardData == null)
-        // {
-        //     return null;
-        // }
+        var so = Resources.Load<CardSO>($"DataList/ScriptableObjects/CardSO/CardSO_{id}");
+        if (so == null)
+        {
+            return null;
+        }
+        var data = so.Data;
 
-        // return new CardEntity(
-        //     id,
-        //     cardData.CardAffectId,
-        //     cardData.IllustId,
-        //     cardData.Name
-        // );
-        return null;
+        return new CardEntity(
+            id,
+            data.CardAffectId,
+            data.Name
+        );
     }
 }
