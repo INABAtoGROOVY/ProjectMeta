@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class CardIllustData
+public class CardIllustData : DataBase
 {
     public int Id;
     public string Name;

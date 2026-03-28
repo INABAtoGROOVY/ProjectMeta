@@ -1,23 +1,12 @@
-using System.Linq;
-using UnityEngine;
-
-public class CardFactory : MonoBehaviour
+public class CardFactory : FactoryBase<CardEntity, CardSO, CardData>
 {
-    public CardEntity Create(
-        int id
-    )
+    protected override CardEntity CreateImpl(CardData data)
     {
-        var so = Resources.Load<CardSO>($"DataList/ScriptableObjects/CardSO/CardSO_{id}");
-        if (so == null)
-        {
-            return null;
-        }
-        var data = so.Data;
+        return new CardEntity(data.Id, data.CardAffectId, data.Name);
+    }
 
-        return new CardEntity(
-            id,
-            data.CardAffectId,
-            data.Name
-        );
+    protected override string GetAssetPath(int id)
+    {
+        return $"DataList/ScriptableObjects/CardSO/CardSO_{id}";
     }
 }

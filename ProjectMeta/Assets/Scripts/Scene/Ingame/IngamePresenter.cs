@@ -10,10 +10,11 @@ public class IngamePresenter : IDisposable
 
     private IIngameView ingameView;
 
-    public IngamePresenter(CardFactory cardFactory, IIngameView ingameView)
+    public IngamePresenter(IIngameView ingameView)
     {
-        this.cardFactory = cardFactory;
         this.ingameView = ingameView;
+
+        cardFactory = new CardFactory();
 
         お試しカード.Subscribe(_ =>
         {

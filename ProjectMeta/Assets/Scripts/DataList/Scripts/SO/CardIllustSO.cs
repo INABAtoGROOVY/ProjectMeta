@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CardIllustSO", menuName = "Scriptable Objects/CardIllustSO")]
-public class CardIllustSO : ScriptableObject
+public class CardIllustSO : SOBase<CardIllustData>
 {
-    public CardIllustData Data;
 }
