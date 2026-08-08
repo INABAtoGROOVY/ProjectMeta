@@ -23,7 +23,7 @@ public class CardSOEditorWindow : CreateSOEditorWindow
         var window = GetWindow<CardSOEditorWindow>(menuName);
         if(cardData != null)
         {
-            window.cardData = cardData.DeepCopy();
+            window.cardData = (CardData)cardData.CreateCopy();
         }
         if (onUpdate != null)
         {

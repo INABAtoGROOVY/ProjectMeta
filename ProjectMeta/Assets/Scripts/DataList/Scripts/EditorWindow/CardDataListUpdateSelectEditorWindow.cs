@@ -21,7 +21,7 @@ public class CardDataListUpdateSelectEditorWindow : EditorWindow
         var window = GetWindow<CardDataListUpdateSelectEditorWindow>(MENU_NAME);
         if(cardData != null)
         {
-            window.cardData = cardData.DeepCopy();
+            window.cardData = (CardData)cardData.CreateCopy();
         }
         if (cardIllustData != null)
         {
